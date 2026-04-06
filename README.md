@@ -58,7 +58,7 @@ Or pull from Google Drive (for agents without GitHub access):
 ```bash
 gog drive download <folder-id> --account <your-account>
 ```
-Drive folder: https://drive.google.com/drive/folders/PLACEHOLDER
+Drive folder: https://drive.google.com/drive/folders/10NuxveRQrMu1VPqEeM3pa-JuJigFJIIr
 
 ## Contributing
 
