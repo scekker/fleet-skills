@@ -1,0 +1,49 @@
+% DESCRIPTION: bioRxiv preprint — standard preprint formatting, wide margins, line numbers
+\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[top=0.85in,left=0.85in,right=0.85in,bottom=0.85in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{lineno}
+\usepackage{authblk}
+\usepackage{abstract}
+\doublespacing
+\title{\Large\textbf{{{TITLE}}}}
+\author[1,*]{{{AUTHORS}}}
+\affil[1]{{{AFFILIATIONS}}}
+\affil[*]{Correspondence: corresponding.author@institution.edu}
+\date{}
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\begin{abstract}
+\noindent {{ABSTRACT}}
+\end{abstract}
+\noindent\textbf{Keywords:} keyword1, keyword2, keyword3
+\linenumbers
+\newpage
+\section*{Introduction}
+\section*{Results}
+\subsection*{Result One}
+\subsection*{Result Two}
+\section*{Discussion}
+\section*{Materials and Methods}
+\subsection*{Experimental Procedures}
+\subsection*{Statistical Analysis}
+\section*{Acknowledgments}
+\section*{Author Contributions}
+\section*{Competing Interests}
+The authors declare no competing interests.
+\section*{Data Availability}
+Raw data and analysis scripts are available at \url{https://github.com/your-repo}.
+\section*{Figure Legends}
+\textbf{Figure 1. }Caption for figure 1.
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+\end{document}

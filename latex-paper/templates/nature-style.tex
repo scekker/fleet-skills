@@ -1,0 +1,51 @@
+% DESCRIPTION: Nature-style — tight formatting, structured abstract, 3000 word body
+\documentclass[10pt,twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=0.75in,top=1in,columnsep=0.25in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage[numbers,super,sort&compress]{natbib}
+\usepackage{authblk}
+\usepackage{microtype}
+\usepackage{titlesec}
+\usepackage{caption}
+\titleformat{\section}{\normalfont\bfseries}{\thesection}{0.5em}{}
+\titleformat{\subsection}{\normalfont\itshape}{\thesubsection}{0.5em}{}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\title{\textbf{{{TITLE}}}}
+\author[1,2,*]{{{AUTHORS}}}
+\affil[1]{{{AFFILIATIONS}}}
+\affil[*]{\small\textit{Correspondence: author@institution.edu}}
+\date{}
+\begin{document}
+\twocolumn[
+  \maketitle
+  \begin{@twocolumnfalse}
+  \begin{abstract}
+  \noindent {{ABSTRACT}}
+  \end{abstract}
+  \vspace{1em}
+  \end{@twocolumnfalse}
+]
+\section{Introduction}
+\section{Results}
+\subsection{Finding One}
+\subsection{Finding Two}
+\section{Discussion}
+\section*{Methods}
+\subsection*{Experimental Procedures}
+\subsection*{Statistical Analysis}
+\section*{Acknowledgments}
+\section*{Author Contributions}
+\section*{Competing Interests}
+The authors declare no competing interests.
+\section*{Data Availability}
+Source data available at \url{https://github.com/your-repo}.
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+\end{document}
