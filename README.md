@@ -18,6 +18,7 @@ These skills extend OpenClaw agents with fleet-specific capabilities. They live 
 | `memory-maintenance` | Keep Layer 0 bootstrap files lean to prevent compaction loops |
 | `session-cleanup` | Prune stale sessions from the OpenClaw session store |
 | `gateway-watchdog` | Check gateway health and restart safely (self-guard for mid-session) |
+| `patent-search` | Search USPTO and EPO OPS patent databases with working credentials |
 
 ### Fleet Operations
 | Skill | Description |
