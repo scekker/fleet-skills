@@ -112,6 +112,33 @@ python3 ~/scripts/assess_input.py --help
 
 ---
 
+## Exit Codes (v1.1+)
+
+The script enforces hard stops via exit codes — automated pipelines cannot proceed without explicit override:
+
+| Exit code | Meaning |
+|-----------|---------|
+| 0 | DIRECT or EXTRACT — safe to proceed |
+| 1 | CHUNK — proceed with caution; subagent recommended |
+| 2 | DANGER — hard stop; do not proceed |
+
+Override DANGER with `--force-dangerous` flag (requires human authorization).
+
+---
+
+## Hardware Routing
+
+| Category | Pip (2017 Intel) | Atlas (M3 Ultra) | Buster (Linux) |
+|----------|-----------------|-----------------|----------------|
+| DIRECT   | ✅ | ✅ | ✅ |
+| EXTRACT  | ✅ | ✅ | ✅ |
+| CHUNK    | ❌ will crash | ✅ | ✅ |
+| DANGER   | ❌ will crash | ✅ | ✅ |
+
+**CHUNK and DANGER docs must be routed to Atlas or Buster.** Pip should extract only and hand off.
+
+---
+
 ## Root cause this prevents
 
 The **"7MB docx crash"** pattern:
@@ -124,8 +151,9 @@ The **"7MB docx crash"** pattern:
 
 ---
 
-## Test validation (2026-04-10, Atlas)
+## Test validation
 
+### v1.0 — Atlas (2026-04-10)
 | File | Size | Category | Notes |
 |------|------|----------|-------|
 | synthetic_small.txt | 6 KB | ✅ DIRECT | |
@@ -134,6 +162,11 @@ The **"7MB docx crash"** pattern:
 | synthetic_danger.docx | 5.5 MB | 🔴 DANGER | 1130% context |
 | VaaS preprint (real Drive PDF) | 1.6 MB | 🔶 CHUNK | 12.1% context — PyPDF2 clean |
 
+### v1.1 — Pip test flight (2026-04-10)
+| File | Size | Category | Result |
+|------|------|----------|--------|
+| Jon Mochel CEIRR .docx | 7.1 MB | 🔴 DANGER | Correctly flagged + extracted. Agent crashed on downstream chunk read — expected on 2017 Intel hardware. Confirmed: DANGER docs must route to Atlas/Buster. |
+
 ---
 
 ## Changelog
@@ -141,3 +174,4 @@ The **"7MB docx crash"** pattern:
 | Date | Entry |
 |------|-------|
 | 2026-04-10 | v1.0 — Initial build + test. 4 synthetic docs + 1 real Drive PDF. All categories verified. Built by Atlas 🏛️ per Steve Ekker directive. Formalized as fleet skill. |
+| 2026-04-10 | v1.1 — Added exit codes (0/1/2), `--force-dangerous` override, `safe_chunk_chars` output, hardware routing table (Pip/Atlas/Buster), DANGER hard stop enforcement. Triggered by Pip crash on 7MB CEIRR doc. |
