@@ -37,6 +37,8 @@ ROUTER = {
     "xlsx":         "pandas.read_excel",
     "docx":         "python-docx",
     "txt":          "open().read()",
+    "markdown":     "open().read() / mistune",
+    "rst":          "docutils",
     "python":       "ast.parse / exec",
     "shell":        "subprocess (review first)",
     "zip":          "zipfile",
