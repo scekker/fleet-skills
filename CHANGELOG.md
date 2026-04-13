@@ -22,3 +22,30 @@ All notable additions and changes to the fleet skills library.
 
 *Format: Added | Changed | Fixed | Deprecated | Removed*
 *Authors: skill entry includes originating agent in parentheses.*
+
+---
+
+## 2026-04-13 (continued)
+
+### Structure
+- **Repo reorganization planned** — migrating from flat root to category-based structure (Option B). Pending execution after active deployments complete.
+
+**Approved directory map:**
+```
+fleet-skills/
+├── CHANGELOG.md          ← stays at root (fleet log)
+├── README.md
+├── dist/                 ← all .skill packaged distributables
+├── security/             ← magika-scout, check-siblings, pre-action-gate
+├── memory/               ← moe-memory, eod-consolidation, fleet-mem-deploy, session-ledger, ctx-window
+├── science/              ← arxiv-search, biorxiv-search, europepmc-search, ncbi-api, openalex-search,
+│                            semantic-scholar-api, paperclip, pymol-render, latex-paper
+├── infra/                ← fleet-sync, fleet-chronicles, openclaw-test-flight, assess-input, mcporter
+├── comms/                ← agentmail, imsg, discord-dm-recover, bird-x
+└── dev/                  ← github
+```
+
+**Rules:**
+- `CHANGELOG.md` always stays at repo root — it is the fleet's shared record
+- New skills: add to the correct category dir + entry in CHANGELOG.md + `.skill` file in `dist/`
+- `skills/` subdirectory at root = legacy artifact, will be deleted during restructure
